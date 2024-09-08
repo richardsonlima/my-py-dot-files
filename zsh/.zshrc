@@ -1,3 +1,46 @@
+# Definir cores
+RED="%F{red}"
+GREEN="%F{green}"
+YELLOW="%F{yellow}"
+BLUE="%F{blue}"
+CYAN="%F{cyan}"
+MAGENTA="%F{magenta}"
+RESET="%F{reset}"
+BOLD="%B"
+
+# Mostrar o status da última execução do comando
+setopt prompt_subst
+function prompt_status() {
+    if [[ $? == 0 ]]; then
+        echo "%{$GREEN%}✔%{$RESET%}"  # Comando executado com sucesso
+    else
+        echo "%{$RED%}✘%{$RESET%}"  # Comando falhou
+    fi
+}
+
+# Mostrar o branch Git atual
+function git_prompt_info() {
+    local branch
+    branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
+    if [ -n "$branch" ]; then
+        echo "$YELLOW($branch)$RESET"
+    fi
+}
+
+# Mostrar o Python venv ativo
+function python_venv_info() {
+    if [[ -n "$VIRTUAL_ENV" ]]; then
+        echo "$CYAN(venv:$(basename $VIRTUAL_ENV))$RESET"
+    fi
+}
+
+# Definir o prompt PS1
+export PS1='${BOLD}${CYAN}%n@%m${RESET} ${GREEN}%~${RESET} $(git_prompt_info) $(python_venv_info) $(prompt_status)
+$ '
+
+# Definir o prompt para a linha de comando contínua (segunda linha)
+export PROMPT2="${YELLOW}>${RESET} "
+
 # Define the HOME variable
 export MY_HOME="$HOME"
 
