@@ -259,3 +259,64 @@ echo -e "  - \033[1;32mNode.js\033[0m: NVM (Node Version Manager) configured."
 echo -e "  - \033[1;32mSDKMAN\033[0m: Manage SDKs like Java."
 echo -e "  - \033[1;32mConda\033[0m: Initializes Conda environments if available."
 
+# --- Informative Message on Required Homebrew Packages ---
+echo -e "\033[1;32m🍺 \033[0m \033[1;36mTo ensure your development environment works perfectly, install the following Homebrew packages:\033[0m"
+echo ""
+echo -e "\033[1;33m➜ Core Packages:\033[0m"
+echo -e "  - \033[1;32m✅ brew install python\033[0m: Installs the latest version of Python."
+echo -e "  - \033[1;32m✅ brew install pyenv\033[0m: Python version management."
+echo -e "  - \033[1;32m✅ brew install pyenv-virtualenv\033[0m: Virtual environment management for pyenv."
+echo ""
+echo -e "\033[1;33m➜ Development Tools:\033[0m"
+echo -e "  - \033[1;32m✅ brew install poetry\033[0m: Python dependency management tool."
+echo -e "  - \033[1;32m✅ brew install argcomplete\033[0m: Provides shell autocompletion for Python scripts."
+echo ""
+echo -e "\033[1;33m➜ System Tools:\033[0m"
+echo -e "  - \033[1;32m✅ brew install git\033[0m: Version control system."
+echo -e "  - \033[1;32m✅ brew install docker\033[0m: Containerization platform."
+echo -e "  - \033[1;32m✅ brew install kubectl\033[0m: Command-line tool for interacting with Kubernetes clusters."
+echo ""
+echo -e "\033[1;33m➜ Optional Tools:\033[0m"
+echo -e "  - \033[1;32m✅ brew install nvm\033[0m: Node.js version management."
+echo -e "  - \033[1;32m✅ brew install sdkman\033[0m: SDK manager for Java and other JVM-related tools."
+echo ""
+echo -e "\033[1;32m==> \033[0m \033[1;36mRun the above commands to install the necessary packages.\033[0m"
+
+# --- Function to check if a Homebrew package is installed ---
+check_brew_package() {
+    if brew list -1 | grep -q "^$1\$"; then
+        echo -e "  - \033[1;32m✅ $1 is already installed.\033[0m"
+    else
+        echo -e "  - \033[1;31m❌ $1 is not installed. You can install it with:\033[0m \033[1;33mbrew install $1\033[0m"
+    fi
+}
+
+# --- Informative Message on Required Homebrew Packages ---
+echo -e "\033[1;32m🍺 \033[0m \033[1;36mChecking if your development environment is set up correctly:\033[0m"
+echo ""
+
+echo -e "\033[1;33m➜ Core Packages:\033[0m"
+check_brew_package "python"
+check_brew_package "pyenv"
+check_brew_package "pyenv-virtualenv"
+echo ""
+
+echo -e "\033[1;33m➜ Development Tools:\033[0m"
+check_brew_package "poetry"
+check_brew_package "argcomplete"
+echo ""
+
+echo -e "\033[1;33m➜ System Tools:\033[0m"
+check_brew_package "git"
+check_brew_package "docker"
+check_brew_package "kubectl"
+echo ""
+
+echo -e "\033[1;33m➜ Optional Tools:\033[0m"
+check_brew_package "nvm"
+check_brew_package "sdkman"
+echo ""
+
+echo -e "\033[1;32m==> \033[0m \033[1;36mEnsure all required packages are installed to avoid issues.\033[0m"
+
+
