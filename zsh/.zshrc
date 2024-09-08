@@ -227,54 +227,49 @@ activate_venv() {
 # - general: for the general-purpose venv
 
 # --- Informative Message on .zshrc load ---
-echo -e "\033[1;34m╭───────────────────────────────────────────────╮\033[0m"
-echo -e "\033[1;34m│\033[0m \033[1;32mZSH Customization Loaded Successfully!\033[0m           \033[1;34m│\033[0m"
-echo -e "\033[1;34m│\033[0m \033[1;36mPython venv Management, Docker, Kubernetes\033[0m      \033[1;34m│\033[0m"
-echo -e "\033[1;34m│\033[0m \033[1;36mand Git Aliases are available!\033[0m                   \033[1;34m│\033[0m"
-echo -e "\033[1;34m│\033[0m                                           \033[1;34m│\033[0m"
-echo -e "\033[1;34m│\033[0m \033[1;36m- Use \033[1;33m'activate_venv <context>'\033[1;36m to activate venvs:\033[0m \033[1;34m│\033[0m"
-echo -e "\033[1;34m│\033[0m   - \033[1;33mllm\033[1;36m: LLM Development\033[0m                           \033[1;34m│\033[0m"
-echo -e "\033[1;34m│\033[0m   - \033[1;33mdev\033[1;36m: General Python Development\033[0m                 \033[1;34m│\033[0m"
-echo -e "\033[1;34m│\033[0m   - \033[1;33mnotebooks\033[1;36m: Jupyter Notebooks\033[0m                      \033[1;34m│\033[0m"
-echo -e "\033[1;34m│\033[0m   - \033[1;33mgeneral\033[1;36m: General Purpose\033[0m                        \033[1;34m│\033[0m"
-echo -e "\033[1;34m╰───────────────────────────────────────────────╯\033[0m"
+echo -e "\033[1;34m╭──────────────────────────────────────────────────────╮\033[0m"
+echo -e "\033[1;34m│\033[0m \033[1;32mZSH Customization Loaded Successfully!\033[0m              \033[1;34m│\033[0m"
+echo -e "\033[1;34m│\033[0m \033[1;36mPython venv Management, Docker, Kubernetes\033[0m         \033[1;34m│\033[0m"
+echo -e "\033[1;34m│\033[0m \033[1;36mand Git Aliases are available!\033[0m                    \033[1;34m│\033[0m"
+echo -e "\033[1;34m│                                                        │\033[0m"
+echo -e "\033[1;34m│\033[0m \033[1;36m- Use \033[1;33m'activate_venv <context>'\033[1;36m to activate venvs:\033[0m\033[1;34m │\033[0m"
+echo -e "\033[1;34m│     - \033[1;33mllm\033[1;36m: LLM Development                                      \033[1;34m│\033[0m"
+echo -e "\033[1;34m│     - \033[1;33mdev\033[1;36m: General Python Development                            \033[1;34m│\033[0m"
+echo -e "\033[1;34m│     - \033[1;33mnotebooks\033[1;36m: Jupyter Notebooks                                  \033[1;34m│\033[0m"
+echo -e "\033[1;34m│     - \033[1;33mgeneral\033[1;36m: General Purpose                                    \033[1;34m│\033[0m"
+echo -e "\033[1;34m╰──────────────────────────────────────────────────────╯\033[0m"
 
 # --- Overview of functionalities ---
 echo -e "\033[1;34m╭───────────────────────── Overview ─────────────────────────╮\033[0m"
 echo -e "\033[1;34m│\033[0m \033[1;32mPrompt Customization\033[0m                                          \033[1;34m│\033[0m"
 echo -e "\033[1;34m│\033[0m - Show user, host, current directory, Git branch, Python venv,       \033[1;34m│\033[0m"
 echo -e "\033[1;34m│\033[0m   and status of the last command (✔ for success, ✘ for failure).     \033[1;34m│\033[0m"
-
+echo -e "\033[1;34m│\033[0m                                                                   \033[1;34m│\033[0m"
 echo -e "\033[1;34m│\033[0m \033[1;32mAlias Shortcuts\033[0m                                               \033[1;34m│\033[0m"
 echo -e "\033[1;34m│\033[0m - \033[1;33mpip, cls, ll, py\033[0m: Simplified commands for pip, clear, ls, python.   \033[1;34m│\033[0m"
 echo -e "\033[1;34m│\033[0m - \033[1;33mdk, dps\033[0m: Docker management aliases.                           \033[1;34m│\033[0m"
 echo -e "\033[1;34m│\033[0m - \033[1;33mk, kctx, kns\033[0m: Kubernetes management aliases.                     \033[1;34m│\033[0m"
 echo -e "\033[1;34m│\033[0m - \033[1;33mgcl, ga, gc, gp\033[0m: Git command shortcuts for clone, add, commit,      \033[1;34m│\033[0m"
 echo -e "\033[1;34m│\033[0m   and push.                                                           \033[1;34m│\033[0m"
-
+echo -e "\033[1;34m│                                                                   │\033[0m"
 echo -e "\033[1;34m│\033[0m \033[1;32mPython Virtual Environment Management\033[0m                           \033[1;34m│\033[0m"
 echo -e "\033[1;34m│\033[0m - \033[1;33mactivate_venv\033[0m: Activates venv based on context: llm, dev,         \033[1;34m│\033[0m"
 echo -e "\033[1;34m│\033[0m   notebooks, or general-purpose.                                      \033[1;34m│\033[0m"
-
+echo -e "\033[1;34m│                                                                   │\033[0m"
 echo -e "\033[1;34m│\033[0m \033[1;32mPython and Project Management Tools\033[0m                             \033[1;34m│\033[0m"
 echo -e "\033[1;34m│\033[0m - \033[1;33mpyenv\033[0m: Manages multiple Python versions.                         \033[1;34m│\033[0m"
 echo -e "\033[1;34m│\033[0m - \033[1;33mpoetry\033[0m: Dependency management with Poetry.                       \033[1;34m│\033[0m"
-
+echo -e "\033[1;34m│                                                                   │\033[0m"
 echo -e "\033[1;34m│\033[0m \033[1;32mCode Linting and Formatting\033[0m                                    \033[1;34m│\033[0m"
 echo -e "\033[1;34m│\033[0m - \033[1;33mlint, format, isort\033[0m: Lint code with flake8, format with black,   \033[1;34m│\033[0m"
 echo -e "\033[1;34m│\033[0m   and sort imports with isort.                                       \033[1;34m│\033[0m"
-
+echo -e "\033[1;34m│                                                                   │\033[0m"
 echo -e "\033[1;34m│\033[0m \033[1;32mData Processing and Machine Learning\033[0m                            \033[1;34m│\033[0m"
 echo -e "\033[1;34m│\033[0m - TensorFlow and PyTorch environments configured.                      \033[1;34m│\033[0m"
 echo -e "\033[1;34m│\033[0m - \033[1;33mSPARK_HOME\033[0m: Set for Apache Spark.                                \033[1;34m│\033[0m"
-
+echo -e "\033[1;34m│                                                                   │\033[0m"
 echo -e "\033[1;34m│\033[0m \033[1;32mDevelopment Environment Setup\033[0m                                   \033[1;34m│\033[0m"
 echo -e "\033[1;34m│\033[0m - \033[1;33mNode.js\033[0m: NVM (Node Version Manager) configured.                  \033[1;34m│\033[0m"
 echo -e "\033[1;34m│\033[0m - \033[1;33mSDKMAN\033[0m: Manage SDKs like Java, etc.                             \033[1;34m│\033[0m"
 echo -e "\033[1;34m│\033[0m - \033[1;33mConda\033[0m: Initializes Conda environments, if available.            \033[1;34m│\033[0m"
-
-echo -e "\033[1;34m╰───────────────────────────────────────────────────────╯\033[0m"
-
-
-
-
+echo -e "\033[1;34m╰──────────────────────────────────────────────────────╯\033[0m"
