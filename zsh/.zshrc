@@ -201,20 +201,21 @@ activate_venv() {
     local CONTEXT=$1
 
     if [[ "$CONTEXT" == "llm" ]]; then
-        source "$MY_HOME/python-llm-development/venv-3.11-llm-development/bin/activate"
+        source "$HOME/python-llm-development/venv-3.11-llm-development/bin/activate"
         echo "Activated venv for LLM Development"
     elif [[ "$CONTEXT" == "dev" ]]; then
-        source "$MY_HOME/python-development/venv-3.11-development/bin/activate"
+        source "$HOME/python-development/venv-3.11-development/bin/activate"
         echo "Activated venv for General Python Development"
     elif [[ "$CONTEXT" == "notebooks" ]]; then
-        source "$MY_HOME/python-notebooks/venv-3.11-jupyter_notebooks-development/bin/activate"
+        source "$HOME/python-notebooks/venv-3.11-jupyter_notebooks-development/bin/activate"
         echo "Activated venv for Python Notebooks"
     elif [[ "$CONTEXT" == "general" ]]; then
-        source "$MY_HOME/venv-3.11-general_purpose-development/bin/activate"
+        source "$HOME/venv-3.11-general_purpose-development/bin/activate"
         echo "Activated general-purpose venv"
     else
         echo "Invalid context. Please use one of the following: llm, dev, notebooks, general."
     fi
+}
 
 # --- How to Use ---
 # To activate a Python virtual environment based on the context, use:
@@ -224,9 +225,15 @@ activate_venv() {
 # - dev: for General Python Development
 # - notebooks: for Jupyter Notebooks
 # - general: for the general-purpose venv
+
 # --- Informative Message on .zshrc load ---
-echo "Python virtual environment activation:
-- Use 'activate_venv llm' for LLM development
-- Use 'activate_venv dev' for general Python development
-- Use 'activate_venv notebooks' for Jupyter notebooks
-- Use 'activate_venv general' for General purpose"
+echo -e "\033[1;34m╭───────────────────────────────────────────────╮\033[0m"
+echo -e "\033[1;34m│\033[0m \033[1;32mPython Virtual Environment Activation\033[0m            \033[1;34m│\033[0m"
+echo -e "\033[1;34m│\033[0m                                           \033[1;34m│\033[0m"
+echo -e "\033[1;34m│\033[0m \033[1;36m- Use \033[1;33m'activate_venv llm'\033[1;36m for LLM development\033[0m   \033[1;34m│\033[0m"
+echo -e "\033[1;34m│\033[0m \033[1;36m- Use \033[1;33m'activate_venv dev'\033[1;36m for General Python Dev\033[0m \033[1;34m│\033[0m"
+echo -e "\033[1;34m│\033[0m \033[1;36m- Use \033[1;33m'activate_venv notebooks'\033[1;36m for Notebooks\033[0m  \033[1;34m│\033[0m"
+echo -e "\033[1;34m│\033[0m \033[1;36m- Use \033[1;33m'activate_venv general'\033[1;36m for General Purpose\033[0m  \033[1;34m│\033[0m"
+echo -e "\033[1;34m╰───────────────────────────────────────────────╯\033[0m"
+
+
