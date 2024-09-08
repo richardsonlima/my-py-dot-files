@@ -250,70 +250,48 @@ echo -e "  - \033[1;32m✅ brew install sdkman\033[0m: SDK manager for Java and 
 echo ""
 echo -e "\033[1;32m==> \033[0m \033[1;36mRun the above commands to install the necessary packages.\033[0m"
 
+
 # --- Function to check if a Homebrew package is installed ---
 check_brew_package() {
     if brew list -1 | grep -q "^$1\$"; then
         echo -e "  - \033[1;32m✅ $1 is already installed.\033[0m"
         return 0
     else
-        echo -e "  - \033[1;31m❌ $1 is not installed. You can install it with:\033[0m \033[1;33mbrew install $1\033[0m"
+        echo -e "  - \033[1;31m❌ $1 is not installed. Installing now...\033[0m"
+        brew install $1
         return 1
     fi
 }
 
-# --- Function to install missing packages ---
-install_missing_packages() {
-    for pkg in "${MISSING_PACKAGES[@]}"; do
-        echo -e "\033[1;34m==> Installing $pkg...\033[0m"
-        brew install $pkg
-    done
-}
-
 # --- Start of the script ---
-echo -e "\033[1;32m🍺 \033[0m \033[1;36mChecking if your development environment is set up correctly:\033[0m"
+echo -e "\033[1;32m🍺 \033[0m \033[1;36mChecking if your development environment is set up correctly and installing missing packages automatically:\033[0m"
 echo ""
 
-MISSING_PACKAGES=()
-
 echo -e "\033[1;33m➜ Core Packages:\033[0m"
-if ! check_brew_package "python"; then MISSING_PACKAGES+=("python"); fi
-if ! check_brew_package "pyenv"; then MISSING_PACKAGES+=("pyenv"); fi
-if ! check_brew_package "pyenv-virtualenv"; then MISSING_PACKAGES+=("pyenv-virtualenv"); fi
+check_brew_package "python"
+check_brew_package "pyenv"
+check_brew_package "pyenv-virtualenv"
 echo ""
 
 echo -e "\033[1;33m➜ Development Tools:\033[0m"
-if ! check_brew_package "poetry"; then MISSING_PACKAGES+=("poetry"); fi
-if ! check_brew_package "argcomplete"; then MISSING_PACKAGES+=("argcomplete"); fi
+check_brew_package "poetry"
+check_brew_package "argcomplete"
 echo ""
 
 echo -e "\033[1;33m➜ System Tools:\033[0m"
-if ! check_brew_package "git"; then MISSING_PACKAGES+=("git"); fi
-if ! check_brew_package "docker"; then MISSING_PACKAGES+=("docker"); fi
-if ! check_brew_package "kubectl"; then MISSING_PACKAGES+=("kubectl"); fi
+check_brew_package "git"
+check_brew_package "docker"
+check_brew_package "kubectl"
 echo ""
 
 echo -e "\033[1;33m➜ Optional Tools:\033[0m"
-if ! check_brew_package "nvm"; then MISSING_PACKAGES+=("nvm"); fi
-if ! check_brew_package "sdkman"; then MISSING_PACKAGES+=("sdkman"); fi
+check_brew_package "nvm"
+check_brew_package "sdkman"
 echo ""
 
-# Check if there are missing packages
-if [ ${#MISSING_PACKAGES[@]} -ne 0 ]; then
-    # Ask the user if they want to install the missing packages
-    echo -e "\033[1;33mSome packages are missing: ${MISSING_PACKAGES[@]}\033[0m"
-    read -p "Would you like to install them? (Y/Yes/S/Sim): " user_input
-    user_input=$(echo "$user_input" | tr '[:upper:]' '[:lower:]') # Convert to lowercase
+echo -e "\033[1;32m==> \033[0m \033[1;36mAll required packages have been installed or were already present.\033[0m"
 
-    if [[ "$user_input" == "y" || "$user_input" == "yes" || "$user_input" == "s" || "$user_input" == "sim" ]]; then
-        install_missing_packages
-    else
-        echo -e "\033[1;31mSkipping installation of missing packages.\033[0m"
-    fi
-else
-    echo -e "\033[1;32mAll required packages are already installed!\033[0m"
-fi
 
-echo -e "\033[1;32m==> \033[0m \033[1;36mEnsure all required packages are installed to avoid issues.\033[0m"
 
 # --- Informative Message on .zshrc load ---
 echo -e "\033[1;32m🍺 \033[0m \033[1;36mZSH Customization Loaded Successfully!\033[0m"
@@ -349,5 +327,3 @@ echo -e "  - \033[1;32mSDKMAN\033[0m: Manage SDKs like Java."
 echo -e "  - \033[1;32mConda\033[0m: Initializes Conda environments if available."
 
 echo -e "\033[1;32m==> \033[0m \033[1;36mEnsure all required packages are installed to avoid issues.\033[0m"
-
-
