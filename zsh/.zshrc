@@ -233,10 +233,10 @@ echo -e "\033[1;34m│\033[0m \033[1;36mPython venv Management, Docker, Kubernet
 echo -e "\033[1;34m│\033[0m \033[1;36mand Git Aliases are available!\033[0m                   \033[1;34m│\033[0m"
 echo -e "\033[1;34m│\033[0m                                           \033[1;34m│\033[0m"
 echo -e "\033[1;34m│\033[0m \033[1;36m- Use \033[1;33m'activate_venv <context>'\033[1;36m to activate venvs:\033[0m \033[1;34m│\033[0m"
-echo -e "\033[1;34m│\033[0m \033[1;36m  - \033[1;33mllm\033[1;36m: LLM Development\033[0m                           \033[1;34m│\033[0m"
-echo -e "\033[1;34m│\033[0m \033[1;36m  - \033[1;33mdev\033[1;36m: General Python Development\033[0m                 \033[1;34m│\033[0m"
-echo -e "\033[1;34m│\033[0m \033[1;36m  - \033[1;33mnotebooks\033[1;36m: Jupyter Notebooks\033[0m                      \033[1;34m│\033[0m"
-echo -e "\033[1;34m│\033[0m \033[1;36m  - \033[1;33mgeneral\033[1;36m: General Purpose\033[0m                        \033[1;34m│\033[0m"
+echo -e "\033[1;34m│\033[0m   - \033[1;33mllm\033[1;36m: LLM Development\033[0m                           \033[1;34m│\033[0m"
+echo -e "\033[1;34m│\033[0m   - \033[1;33mdev\033[1;36m: General Python Development\033[0m                 \033[1;34m│\033[0m"
+echo -e "\033[1;34m│\033[0m   - \033[1;33mnotebooks\033[1;36m: Jupyter Notebooks\033[0m                      \033[1;34m│\033[0m"
+echo -e "\033[1;34m│\033[0m   - \033[1;33mgeneral\033[1;36m: General Purpose\033[0m                        \033[1;34m│\033[0m"
 echo -e "\033[1;34m╰───────────────────────────────────────────────╯\033[0m"
 
 # --- Overview of functionalities ---
@@ -274,6 +274,7 @@ echo -e "\033[1;34m│\033[0m - \033[1;33mSDKMAN\033[0m: Manage SDKs like Java, 
 echo -e "\033[1;34m│\033[0m - \033[1;33mConda\033[0m: Initializes Conda environments, if available.            \033[1;34m│\033[0m"
 
 echo -e "\033[1;34m╰───────────────────────────────────────────────────────╯\033[0m"
+
 
 
 
