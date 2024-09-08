@@ -54,12 +54,14 @@ source $ZSH/oh-my-zsh.sh
 ZSH_THEME="gnzh"
 
 # Aliases for system and development tasks
+alias pip="pip3"
 alias cls="clear"
 alias ll="ls -lah"
 alias py="python3"
 alias pip-upgrade="pip list --outdated | grep -v '^\(Package\|\-\-\-\)' | awk '{print $1}' | xargs -n1 pip install -U"
-alias activate="source venv/bin/activate"
+#alias activate="source venv/bin/activate"
 #alias deactivate="deactivate"
+unalias deactivate 2>/dev/null
 
 # Docker & Kubernetes
 alias dk="docker"
@@ -193,24 +195,26 @@ PATH="$PATH:/opt/homebrew/bin/"
 
 # --- Function to activate Python venvs based on context ---
 activate_venv() {
+    # Remover o alias 'deactivate' se existir
+    unalias deactivate 2>/dev/null
+
     local CONTEXT=$1
 
     if [[ "$CONTEXT" == "llm" ]]; then
-        source "$MY_HOME/python-llm-development/venv-3.11/bin/activate"
+        source "$MY_HOME/python-llm-development/venv-3.11-llm-development/bin/activate"
         echo "Activated venv for LLM Development"
     elif [[ "$CONTEXT" == "dev" ]]; then
-        source "$MY_HOME/python-development/venv-3.11/bin/activate"
+        source "$MY_HOME/python-development/venv-3.11-development/bin/activate"
         echo "Activated venv for General Python Development"
     elif [[ "$CONTEXT" == "notebooks" ]]; then
-        source "$MY_HOME/python-notebooks/venv-3.11/bin/activate"
+        source "$MY_HOME/python-notebooks/venv-3.11-jupyter_notebooks-development/bin/activate"
         echo "Activated venv for Python Notebooks"
     elif [[ "$CONTEXT" == "general" ]]; then
-        source "$MY_HOME/venv-3.11/bin/activate"
+        source "$MY_HOME/venv-3.11-general_purpose-development/bin/activate"
         echo "Activated general-purpose venv"
     else
         echo "Invalid context. Please use one of the following: llm, dev, notebooks, general."
     fi
-}
 
 # --- How to Use ---
 # To activate a Python virtual environment based on the context, use:
